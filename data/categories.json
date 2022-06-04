@@ -1,15 +1,22 @@
-0	
-id	1
-category	"Technology"
-1	
-id	2
-category	"Gaming"
-2	
-id	3
-category	"Fashion"
-3	
-id	4
-category	"Education"
-4	
-id	5
-category	"Wellness"
+[
+    {
+        "id": 1,
+        "category": "Technology"
+    },
+    {
+        "id": 2,
+        "category": "Gaming"
+    },
+    {
+        "id": 3,
+        "category": "Fashion"
+    },
+    {
+        "id": 4,
+        "category": "Education"
+    },
+    {
+        "id": 5,
+        "category": "Wellness"
+    }
+]
