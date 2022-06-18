@@ -1,3 +1,17 @@
+/*********************************************************************************
+*  WEB322 – Assignment 02
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source 
+*  (including 3rd party web sites) or distributed to other students.
+* 
+*  Name: ____Aryan Arora__________________ Student ID: ______155792203________ Date: _____3 june 2022___________
+*
+*  Online (Heroku) URL: _______________https://enigmatic-everglades-94412.herokuapp.com/about_________________________________________
+*
+*  GitHub Repository URL: _________________________________https://github.com/AroraAryan23/web322-app.git_____________________
+*
+********************************************************************************/ 
+
+
 var express = require("express")
 var app = express()
 var PORT = process.env.PORT || 8080
