@@ -43,6 +43,7 @@ exports.getPublishedPosts = () => {
         resolve(publishPost);
     })
 };
+
 exports.getCategories = () => {
     return new Promise((resolve,reject) => {
         if (categories.length == 0) {
@@ -52,4 +53,50 @@ exports.getCategories = () => {
             resolve (categories);
         }
     })
+};
+
+exports.addPost = (postData) => {
+    return new Promise ((resolve,reject) => {
+        if(postData.published == undefined)
+            postData.published = false
+        else
+            postData.published = true
+
+        postData.id = posts.length + 1
+        posts.push(postData)
+        resolve(postData)
+    })    
+};
+
+exports.getPostsByCategory = (category) => {
+    return new Promise( (resolve,reject) => {
+        let filtredPosts = posts.filter( post => {
+            return post.category == category
+        })
+
+        resolve(filtredPosts)
+    })
 }
+
+exports.getPostsByMinDate = (minDateStr) => {
+    return new Promise( (resolve,reject) => {
+        let filtredPosts = posts.filter( post => {
+            return (new Date(post.postDate) >= new Date(minDateStr))
+        })
+
+        resolve(filtredPosts)
+    })
+} 
+
+exports.getPostById = (id) => {
+    return new Promise( (resolve,reject) => {
+        let filtredPost = posts.filter( post => {
+            return post.id == id
+        })
+
+        if(filtredPost.length == 1)
+            resolve(filtredPost[0])
+        else 
+            reject("no result returned")
+    })
+} 
