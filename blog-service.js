@@ -1,7 +1,7 @@
 const fs = require("fs"); 
-const { resolve } = require("path");
 var posts = [];
 var categories = [];
+const { resolve } = require("path");
 
 exports.initialize = () => {
     return new Promise ((resolve, reject) => {
@@ -37,11 +37,11 @@ exports.getAllPosts = () => {
 };
 exports.getPublishedPosts = () => {
     return new Promise ((resolve, reject) => {
-        var publishPost = posts.filter(post => post.published == true);
-        if (publishPost.length == 0) {
+        var publishedPost = posts.filter(post => post.published == true);
+        if (publishedPost.length == 0) {
             reject('no results returned');
         }
-        resolve(publishPost);
+        resolve(publishedPost);
     })
 };
 exports.getCategories = () => {
@@ -53,7 +53,7 @@ exports.getCategories = () => {
             resolve (categories);
         }
     })
-}
+};
 
 exports.addPost = (postData) => {
     postData.published==undefined ? postData.published = false : postData.published = true;
@@ -84,25 +84,13 @@ exports.getPostsByCategory = (category) => {
 exports.getPostsByMinDate = (minDateStr) => {
     return new Promise((resolve,reject) => {
       var post_Date = posts.filter(post => post.postDate >= minDateStr)
-       /* if(new Date(somePostObj.postDate) >= new Date(minDateStr)){
-            console.log("The postDate value is greater than minDateStr")
-           }*/
+     
            if (post_Date.length == 0) {
             reject('no results returned');
         }           
         resolve(post_Date)
     })
 }
-
-/*exports.getPostById = (id) => {
-    return new Promise((resolve,reject) => {
-        var post_id = posts.filter(post => post.id == id);
-        if (post_id.length == 0) {
-            reject('no result returned');
-        }
-        resolve(post_id);
-    })
-}*/
 
 exports.getPostById = (id) => {
     return new Promise((resolve, reject) => {
@@ -111,16 +99,16 @@ exports.getPostById = (id) => {
                 resolve(posts[i])
             }
         }
-        reject('no result returned')
+        reject('no results returned')
     })
 }
 
 exports. getPublishedPostsByCategory = (category) => {
     return new Promise ((resolve, reject) => {
-        var publishPost = posts.filter(post => post.published == true && post.category == category);
-        if (publishPost.length == 0) {
+        var publishedPost = posts.filter(post => post.published == true && post.category == category);
+        if (publishedPost.length == 0) {
             reject('no results returned');
         }
-        resolve(publishPost);
+        resolve(publishedPost);
     })
 };
